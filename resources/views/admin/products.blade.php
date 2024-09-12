@@ -88,6 +88,14 @@
 						<input type="file" name="image" class="@error('image') is-invalid @enderror form-control" id="productImage" required>
 					</div>
 					<div class="mb-3">
+						<label for="productCategory" class="form-label">Category</label><br>
+						<select name="category_id" class="form-select" id="productCategory" required style="width: 100%;">
+							@foreach($cats as $category)
+							<option value="{{ $category->id }}">{{ $category->name }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="mb-3">
 						<label for="productPrice" class="form-label">Price</label>
 						<input type="number" name="price" value="{{ old('price') }}" class="@error('price') is-invalid @enderror form-control" id="productPrice" required>
 						@error('price')
@@ -108,6 +116,7 @@
 							<option value="0">Unavailable</option>
 						</select>
 					</div>
+
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary">Save Product</button>

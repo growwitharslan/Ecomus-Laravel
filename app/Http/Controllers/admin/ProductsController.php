@@ -15,15 +15,30 @@ class ProductsController extends Controller
    {
 
       $products = product::orderBy('created_at', 'DESC')->get();
+      $cats = category::all();
       return view('admin.products', [
-         'products' => $products
+         'products' => $products,
+         'cats' => $cats
       ]);
    }
-   public function productsbydb(){
+   public function productsbydb()
+   {
       $products = product::all();
       $cats = category::all();
       return view('welcome', compact('products', 'cats'));
    }
+
+   public function productdetails(Request $request)
+   {
+      $productSlug = $request->query('product');
+      $product = product::where('slug', $productSlug)->firstOrFail();
+      $allproducts = product::orderByDesc('created_at')->get();
+      return view('product_details', compact('product', 'allproducts'));
+   }
+   public function Allproducts(){
+      $products = product::all();
+      return view('products', compact('products'));
+  }
 
    public function store(Request $request)
    {
@@ -38,6 +53,8 @@ class ProductsController extends Controller
       }
       $product = new product();
       $product->name = $request->input('name');
+      $product->category_id = $request->input('category_id');
+      $product->slug = \Illuminate\Support\Str::slug($request->input('name')) . '-' . uniqid();
       $product->price = $request->input('price');
       $product->description = $request->input('description');
       $product->available = $request->input('available');
@@ -70,6 +87,7 @@ class ProductsController extends Controller
 
       if ($product) {
          $product->name = $request->name;
+         $product->slug = \Illuminate\Support\Str::slug($request->name) . '-' . uniqid();
          $product->price = $request->price;
          $product->description = $request->description;
          $product->available = $request->available;
@@ -111,6 +129,9 @@ class ProductsController extends Controller
          return response()->json(['msg' => 'error', 'response' => 'Product not found.']);
       }
    }
+
+
+
 
 
 

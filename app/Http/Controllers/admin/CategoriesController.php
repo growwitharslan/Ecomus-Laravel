@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\category;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
@@ -17,6 +18,19 @@ class CategoriesController extends Controller
             'categories' => $categories
         ]);
     }
+    public function category(){
+        $category = category::all();
+        return view('categories', compact('category'));
+    }
+    
+    public function categorydetails(Request $request)
+    {
+        $id = $request->query('id');
+        $category = category::find($id);
+        $products = product::where('category_id', $id)->get();
+        return view('category_products', compact('category', 'products'));
+    }
+
     public function categoriesbydb()
     {
         $categories = category::all();

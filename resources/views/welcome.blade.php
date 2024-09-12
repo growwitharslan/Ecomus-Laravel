@@ -35,7 +35,7 @@
                         <div class="container">
                             <h1 class="fade-item fade-item-1">Glamorous<br>Glam</h1>
                             <p class="fade-item fade-item-2">From casual to formal, we've got you covered</p>
-                            <a href="shop-default.html" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                            <a href="" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -155,24 +155,23 @@
                         <div class="swiper-slide" lazy="true">
                             <div class="collection-item style-left hover-img">
                                 <div class="collection-inner">
-                                    <a href="" class="collection-image img-style">
-                                        
-                                        <img class="lazyload" data-src="" src="{{ asset('uploads/products/' . $category->image) }}" alt="collection-img" style="width: 300px; height: 300px; object-fit: contain;">
+                                    <a href="{{ route('category.quick.view', ['id' => $category->id, 'category' => $category->slug]) }}" class="collection-image img-style">
+                                        <img class="lazyload" data-src="" src="{{ asset('uploads/products/' . $category->image) }}" alt="collection-img" style="width: 300px; height: 300px; object-fit: cover;">
                                     </a>
                                     <div class="collection-content">
-                                        <a href="" class="tf-btn collection-title hover-icon fs-15"><span>{{$category->name}}</span><i class="icon icon-arrow1-top-left"></i></a>
+                                        <a href="{{ route('category.quick.view', ['id' => $category->id, 'category' => $category->slug]) }}" class="tf-btn collection-title hover-icon fs-15"><span>{{$category->name}}</span><i class="icon icon-arrow1-top-left"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach    
+                        @endforeach
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-4">
                 <div class="discovery-new-item">
                     <h5>Discovery all Categories</h5>
-                    <a href="#"><i class="icon-arrow1-top-left"></i></a>
+                    <a href="{{ route('category.view') }}"><i class="icon-arrow1-top-left"></i></a>
                 </div>
             </div>
         </div>
@@ -188,33 +187,38 @@
             <p class="sub-title wow fadeInUp" data-wow-delay="0s">Shop the Latest Styles: Stay ahead of the curve with our newest arrivals</p>
         </div>
         <div class="grid-layout loadmore-item wow fadeInUp" data-wow-delay="0s" data-grid="grid-4">
-            <!-- card product 1 -->
+            <!-- Products -->
             @foreach($products as $product)
             <div class="card-product fl-item">
                 <div class="card-product-wrapper">
-                    <a href="product-detail.html" class="product-img">
+                    <a href="{{ route('product.quick.view', ['product' => $product->slug]) }}" class="product-img">
                         <img class="lazyload img-product" data-src="{{ asset('uploads/products/' . $product->image) }}" src="{{ asset('uploads/products/' . $product->image) }}" alt="image-product" style="width: 300px; height: 300px; object-fit: contain;">
                         <img class="lazyload img-hover" data-src="{{ asset('uploads/products/' . $product->image) }}" src="{{ asset('uploads/products/' . $product->image) }}" alt="image-product" style="width: 300px; height: 300px; object-fit: contain;">
                     </a>
                     <div class="list-product-btn">
-                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+                        <button href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading" data-id="{{$product->id}}">
                             <span class="icon icon-bag"></span>
                             <span class="tooltip">Quick Add</span>
-                        </a>
-                        <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
+                        </button>
+                        <a href="{{ route('product.quick.view', ['product' => $product->slug]) }}"  class="box-icon bg_white quickview quick_view_btn tf-btn-loading" data-id="{{$product->id}}">
                             <span class="icon icon-view"></span>
                             <span class="tooltip">Quick View</span>
                         </a>
                     </div>
                 </div>
                 <div class="card-product-info">
-                    <a href="product-detail.html" class="title link">{{$product->name}}</a>
+                    <a href="#" class="title link">{{$product->name}}</a>
+                    @if ($product->available == 1)
+                    <badge class="w-25 badge bg-success">Available</badge>
+                    @else
+                    <badge class="w-25 badge bg-danger">Out of stock</badge>
+                    @endif
                     <span class="price">${{$product->price}}</span>
                 </div>
             </div>
             @endforeach
-            <!-- card product 2 -->
         </div>
+
         <div class="tf-pagination-wrap view-more-button text-center">
             <button class="tf-btn-loading tf-loading-default style-2 btn-loadmore "><span class="text">Load more</span></button>
         </div>
@@ -243,7 +247,7 @@
                                 <ul class="dropdown-menu p-0 border-0">
                                     <li>
                                         <div class="lookbook-product">
-                                            <a href="product-detail.html" class="image">
+                                            <a href="#" class="image">
                                                 <img class="lazyload" data-src="{{ asset('assets/images/shop/products/img-p2.png') }}" src="{{ asset('assets/images/shop/products/img-p2.png') }}" alt="lookbook-item">
                                             </a>
                                             <div class="content-wrap">
@@ -268,7 +272,7 @@
                                 <ul class="dropdown-menu p-0 border-0">
                                     <li>
                                         <div class="lookbook-product">
-                                            <a href="product-detail.html" class="image">
+                                            <a href="#" class="image">
                                                 <img class="lazyload" data-src="{{ asset('assets/images/shop/products/img-p4.png') }}" src="{{ asset('assets/images/shop/products/img-p4.png') }}" alt="">
                                             </a>
                                             <div class="content-wrap">
@@ -300,7 +304,7 @@
                                 <ul class="dropdown-menu p-0 border-0">
                                     <li>
                                         <div class="lookbook-product">
-                                            <a href="product-detail.html" class="image">
+                                            <a href="#" class="image">
                                                 <img class="lazyload" data-src="{{ asset('assets/images/shop/products/img-p5.png') }}" src="{{ asset('assets/images/shop/products/img-p5.png') }}" alt="">
                                             </a>
                                             <div class="content-wrap">
@@ -356,17 +360,17 @@
                             </div>
                             <div class="product">
                                 <div class="image">
-                                    <a href="product-detail.html">
+                                    <a href="#">
                                         <img class="lazyload" data-src="{{ asset('assets/images/shop/products/img-p2.png') }}" src="{{ asset('assets/images/shop/products/img-p2.png') }}" alt="">
                                     </a>
                                 </div>
                                 <div class="content-wrap">
                                     <div class="product-title">
-                                        <a href="product-detail.html">Jersey thong body</a>
+                                        <a href="#">Jersey thong body</a>
                                     </div>
                                     <div class="price">$105.95</div>
                                 </div>
-                                <a href="product-detail.html" class=""><i class="icon-arrow1-top-left"></i></a>
+                                <a href="#" class=""><i class="icon-arrow1-top-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -389,17 +393,17 @@
                             </div>
                             <div class="product">
                                 <div class="image">
-                                    <a href="product-detail.html">
+                                    <a href="#">
                                         <img class="lazyload" data-src="{{ asset('assets/images/shop/products/img-p3.png') }}" src="{{ asset('assets/images/shop/products/img-p3.png') }}" alt="">
                                     </a>
                                 </div>
                                 <div class="content-wrap">
                                     <div class="product-title">
-                                        <a href="product-detail.html">Cotton jersey top</a>
+                                        <a href="#">Cotton jersey top</a>
                                     </div>
                                     <div class="price">$7.95</div>
                                 </div>
-                                <a href="product-detail.html" class=""><i class="icon-arrow1-top-left"></i></a>
+                                <a href="#" class=""><i class="icon-arrow1-top-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -422,17 +426,17 @@
                             </div>
                             <div class="product">
                                 <div class="image">
-                                    <a href="product-detail.html">
+                                    <a href="#">
                                         <img class="lazyload" data-src="{{ asset('assets/images/shop/products/img-p4.png') }}" src="{{ asset('assets/images/shop/products/img-p4.png') }}" alt="">
                                     </a>
                                 </div>
                                 <div class="content-wrap">
                                     <div class="product-title">
-                                        <a href="product-detail.html">Ribbed modal T-shirt</a>
+                                        <a href="#">Ribbed modal T-shirt</a>
                                     </div>
                                     <div class="price">From $18.95</div>
                                 </div>
-                                <a href="product-detail.html" class=""><i class="icon-arrow1-top-left"></i></a>
+                                <a href="#" class=""><i class="icon-arrow1-top-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -455,17 +459,17 @@
                             </div>
                             <div class="product">
                                 <div class="image">
-                                    <a href="product-detail.html">
+                                    <a href="#">
                                         <img class="lazyload" data-src="{{ asset('assets/images/shop/products/img-p5.png') }}" src="{{ asset('assets/images/shop/products/img-p5.png') }}" alt="">
                                     </a>
                                 </div>
                                 <div class="content-wrap">
                                     <div class="product-title">
-                                        <a href="product-detail.html">Customer from Japan</a>
+                                        <a href="#">Customer from Japan</a>
                                     </div>
                                     <div class="price">$16.95</div>
                                 </div>
-                                <a href="product-detail.html" class=""><i class="icon-arrow1-top-left"></i></a>
+                                <a href="#" class=""><i class="icon-arrow1-top-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -558,7 +562,7 @@
                             <div class="img-style">
                                 <img class="lazyload img-hover" data-src="{{ asset('assets/images/shop/gallery/gallery-8.jpg') }}" src="{{ asset('assets/images/shop/gallery/gallery-8.jpg') }}" alt="image-gallery">
                             </div>
-                            <a href="product-detail.html" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
+                            <a href="#" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -566,7 +570,7 @@
                             <div class="img-style">
                                 <img class="lazyload img-hover" data-src="{{ asset('assets/images/shop/gallery/gallery-6.jpg') }}" src="{{ asset('assets/images/shop/gallery/gallery-6.jpg') }}" alt="image-gallery">
                             </div>
-                            <a href="product-detail.html" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
+                            <a href="#" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
                         </div>
                     </div>
                 </div>
@@ -636,3 +640,6 @@
 </section>
 <!-- /Icon box -->
 @endsection
+@push('scripts')
+
+@endpush
