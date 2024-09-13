@@ -7,8 +7,10 @@ use App\Http\Controllers\admin\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StripeController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\UserMiddleware;
@@ -62,3 +64,12 @@ Route::post('process-register', [AdminLoginController::class, 'processRegister']
 Route::get('/admin', [AdminLoginController::class, 'index'])->name('admin.login');
 Route::post('admin/authenticate', [AdminLoginController::class, 'authenticate'])->name('admin.authenticate');
 Route::get('admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+
+
+
+Route::post('/product/cart', [CartController::class, 'store'])->name('cart.store');
+Route::post('/product/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+
+Route::get('/stripe/checkout', [StripeController::class, 'session'])->name('stripe.session');
+Route::get('/stripe/checkout/success', [StripeController::class, 'success'])->name('stripe.success');
+Route::get('/stripe/checkout/cancel', [StripeController::class, 'cancel'])->name('stripe.cancel');

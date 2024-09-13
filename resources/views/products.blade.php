@@ -1,9 +1,18 @@
 
 @extends('layouts.main')
 @section('content')
-
+@if(session('success'))
+<section style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999;">
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade show w-100 w-md-75 w-lg-50 mx-auto " style="margin-top:8%" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+</section>
+@endif
 <!-- page-title -->
-<section style="margin-top: 8%;">
+<section style="margin-top: 12%;">
     <div class="tf-page-title">
         <div class="container-full">
             <div class="row">
@@ -52,7 +61,7 @@
                         <img class="lazyload img-hover" data-src="{{asset('uploads/products/'. $product->image)}}" src="{{asset('uploads/products/'. $product->image)}}" alt="image-product" style="width: 300px; height: 300px; object-fit: cover;">
                     </a>
                     <div class="list-product-btn absolute-2">
-                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+                        <a href="#quick_add_{{$product->id}}" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
                             <span class="icon icon-bag"></span>
                             <span class="tooltip">Quick Add</span>
                         </a>

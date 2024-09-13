@@ -87,25 +87,31 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="tf-product-info-quantity">
-                                <div class="quantity-title fw-6">Quantity</div>
-                                <div class="wg-quantity">
-                                    <span class="btn-quantity minus-btn">-</span>
-                                    <input type="text" name="number" value="1">
-                                    <span class="btn-quantity plus-btn">+</span>
-                                </div>
-                            </div>
-                            <div class="tf-product-info-buy-button">
-                                <form class="">
-                                    <a href="#"
-                                        class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn "><span>Add
-                                            to cart -&nbsp;</span><span class="tf-qty-price">$8.00</span></a>
 
-                                    <div class="w-100">
+                            <div class="tf-product-info-buy-button">
+                                <form action="{{route('cart.store')}}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$product->id}}">
+                                    <input type="hidden" name="name" value="{{$product->name}}">
+                                    <input type="hidden" name="price" value="{{$product->price}}">
+                                    <input type="hidden" name="image" value="{{$product->image}}">
+                                    <div class="tf-product-info-quantity">
+                                        <div class="quantity-title fw-6">Quantity</div>
+                                        <div class="wg-quantity">
+                                            <span class="btn-quantity minus-btn">-</span>
+                                            <input type="text" name="quantity" value="1">
+                                            <span class="btn-quantity plus-btn">+</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit"
+                                        class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn "><span>Add
+                                            to cart </span></button>
+
+                                    <!-- <div class="w-100">
                                         <a href="#" class="btns-full">Buy with <img
                                                 src="images/payments/paypal.png" alt=""></a>
                                         <a href="#" class="payment-more-option">More payment options</a>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </div>
                             <div class="tf-product-info-extra-link">
@@ -422,9 +428,9 @@
                             <div class="card-product-info">
                                 <a href="product-detail.html" class="title link">{{ $product->name }}</a>
                                 @if ($product->available == 1)
-                                    <div class="w-25 badge bg-success">Available</div>
+                                <div class="w-25 badge bg-success">Available</div>
                                 @else
-                                    <div class="w-25 badge bg-danger">Out of stock</div>
+                                <div class="w-25 badge bg-danger">Out of stock</div>
                                 @endif
                                 <span class="price">${{ $product->price }}</span>
                             </div>

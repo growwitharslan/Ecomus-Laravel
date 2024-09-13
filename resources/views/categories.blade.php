@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- page-title -->
-<section style="margin-top: 8%;">
+<section style="margin-top: 12%;">
     <div class="tf-page-title">
         <div class="container-full">
             <div class="row">

@@ -51,7 +51,7 @@
                         <img class="lazyload img-hover" data-src="{{asset('uploads/products/'. $product->image)}}" src="{{asset('uploads/products/'. $product->image)}}" alt="image-product" style="width: 300px; height: 300px; object-fit: cover;">
                     </a>
                     <div class="list-product-btn absolute-2">
-                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+                        <a href="#quick_add_{{ $product->id }}" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
                             <span class="icon icon-bag"></span>
                             <span class="tooltip">Quick Add</span>
                         </a>

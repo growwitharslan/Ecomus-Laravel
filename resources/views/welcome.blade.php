@@ -1,7 +1,17 @@
 @extends('layouts.main')
 @section('content')
 <!-- Slider -->
-<div class="tf-slideshow slider-effect-fade position-relative">
+    @if(session('success'))
+<section style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999;">
+    <div class="container">
+        <div class="alert alert-success alert-dismissible fade show w-100 w-md-75 w-lg-50 mx-auto " style="margin-top:8%" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+</section>
+@endif
+<div class="tf-slideshow slider-effect-fade position-relative" style="margin-top: 12%;">
     <div class="swiper tf-sw-slideshow" data-preview="1" data-mobile="1" data-space="0" data-loop="true" data-auto-play="false" data-delay="0" data-speed="1000">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -196,11 +206,11 @@
                         <img class="lazyload img-hover" data-src="{{ asset('uploads/products/' . $product->image) }}" src="{{ asset('uploads/products/' . $product->image) }}" alt="image-product" style="width: 300px; height: 300px; object-fit: contain;">
                     </a>
                     <div class="list-product-btn">
-                        <button href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading" data-id="{{$product->id}}" style="border: unset;">
+                        <button href="#quick_add_{{$product->id}}" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading" data-id="{{$product->id}}" style="border: unset;">
                             <span class="icon icon-bag"></span>
                             <span class="tooltip">Quick Add</span>
                         </button>
-                        <a href="{{ route('product.quick.view', ['product' => $product->slug]) }}"  class="box-icon bg_white quickview quick_view_btn tf-btn-loading" data-id="{{$product->id}}">
+                        <a href="{{ route('product.quick.view', ['product' => $product->slug]) }}" class="box-icon bg_white quickview quick_view_btn tf-btn-loading" data-id="{{$product->id}}">
                             <span class="icon icon-view"></span>
                             <span class="tooltip">Quick View</span>
                         </a>
@@ -640,6 +650,3 @@
 </section>
 <!-- /Icon box -->
 @endsection
-@push('scripts')
-
-@endpush

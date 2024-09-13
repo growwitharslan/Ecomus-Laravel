@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 
-
-<!-- Mirrored from themesflat.co/html/ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Aug 2024 07:18:13 GMT -->
-
 <head>
     <meta charset="utf-8">
     <title>Ecomus | dev-ARSAL</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -23,7 +20,6 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/logo/favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     @stack('styles')
 </head>
 <style>
@@ -99,7 +95,7 @@
                                     @endguest
                                 </ul>
                             </li>
-                            <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">0</span></a></li>
+                            <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">{{ count(session('cart', [])) }}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -260,8 +256,8 @@
     <!-- toolbar-bottom -->
     <div class="tf-toolbar-bottom type-1150">
         <div class="toolbar-item ">
-        <!-- #toolbarShopmb data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" -->
-            <a href="{{ route('home') }}" >
+            <!-- #toolbarShopmb data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" -->
+            <a href="{{ route('home') }}">
                 <div class="toolbar-icon">
                     <i class="fas fa-home"></i>
                 </div>
@@ -271,7 +267,7 @@
         <div class="toolbar-item">
             <a href="{{ route('category.view') }}">
                 <div class="toolbar-icon">
-                <i class="fa-solid fa-list"></i>
+                    <i class="fa-solid fa-list"></i>
                 </div>
                 <div class="toolbar-label">Categories</div>
             </a>
@@ -280,19 +276,27 @@
             <a href="#shoppingCart" data-bs-toggle="modal">
                 <div class="toolbar-icon">
                     <i class="icon-bag"></i>
-                    <div class="toolbar-count">1</div>
+                    <div class="toolbar-count">{{ count(session('cart', [])) }}</div>
                 </div>
                 <div class="toolbar-label">Cart</div>
             </a>
         </div>
         <div class="toolbar-item">
-            <a href="{{route('account.login')}}">
+            @auth
+            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                 <div class="toolbar-icon">
                     <i class="icon-account"></i>
-                    <div class="toolbar-count">1</div>
                 </div>
-                <div class="toolbar-label">Account</div>
+                <div class="toolbar-label">{{ Auth::user()->name }}</div>
             </a>
+            @else
+            <a href="{{ route('account.login') }}">
+                <div class="toolbar-icon">
+                    <i class="icon-account"></i>
+                </div>
+                <div class="toolbar-label">Login</div>
+            </a>
+            @endauth
         </div>
 
     </div>
@@ -509,42 +513,70 @@
                         <div class="tf-mini-cart-main">
                             <div class="tf-mini-cart-sroll">
                                 <div class="tf-mini-cart-items">
+                                    @if (empty(session('cart', [])))
+                                    <div class="emptycart">
+                                        <div class="emptycart-icon d-flex justify-content-center align-items-center flex-column">
+                                            <img width="300px"
+                                                src="{{asset('assets/vecteezy_young-man-shopping-push-empty-shopping-trolley_4964514.svg')}}"
+                                                alt="">
+                                            <h5 class="emptycart-icon-text">Your cart is empty</h5>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    <?php
+                                    // Get the cart items from the session
+                                    $cartItems = session('cart', []);
+                                    // Sort the items by quantity in descending order
+                                    arsort($cartItems);
+                                    ?>
+                                    @foreach($cartItems as $id => $details)
                                     <div class="tf-mini-cart-item">
                                         <div class="tf-mini-cart-image">
                                             <a href="#">
-                                                <img src="{{ asset('assets/images/products/white-2.jpg') }}" alt="">
+                                                <img src="{{ asset('uploads/products/'. $details['image']) }}" alt="{{ $details['name'] }}">
                                             </a>
                                         </div>
                                         <div class="tf-mini-cart-info">
-                                            <a class="title link" href="#">T-shirt</a>
-                                            <div class="meta-variant">Light gray</div>
-                                            <div class="price fw-6">$25.00</div>
+                                            <a class="title link" href="#">{{ $details['name'] }}</a>
+                                            <label for="">Quantity:</label>
+                                            <span>{{ $details['quantity'] }}x</span>
                                             <div class="tf-mini-cart-btns">
-                                                <div class="wg-quantity small">
-                                                    <span class="btn-quantity minus-btn">-</span>
-                                                    <input type="text" name="number" value="1">
-                                                    <span class="btn-quantity plus-btn">+</span>
-                                                </div>
-                                                <div class="tf-mini-cart-remove">Remove</div>
+                                                <div class="tf-mini-cart-remove remove_btn" data-id="{{ $details['id'] }}">Remove</div>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
+
+
                             </div>
                         </div>
                         <div class="tf-mini-cart-bottom">
-                            
+                            @if (!empty(session('cart', [])))
                             <div class="tf-mini-cart-bottom-wrap">
                                 <div class="tf-cart-totals-discounts">
                                     <div class="tf-cart-total">Subtotal</div>
-                                    <div class="tf-totals-total-value fw-6">$49.99 USD</div>
+                                    <div class="tf-totals-total-value fw-6">${{ array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, session('cart', []))); }} USD</div>
                                 </div>
                                 <div class="tf-cart-tax">Taxes and <a href="#">shipping</a> calculated at checkout</div>
                                 <div class="tf-mini-cart-line"></div>
                                 <div class="tf-mini-cart-view-checkout">
-                                    <a href="#" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Check out</span></a>
+                                    @auth
+                                    <div class="w-100 dropdown">
+                                        <button class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center dropdown-toggle" type="button" id="paymentDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span>Check out</span>
+                                        </button>
+                                        <ul class="dropdown-menu w-100" aria-labelledby="paymentDropdown">
+                                            <li><a class="dropdown-item" href="#">PayPal</a></li>
+                                            <li><a class="dropdown-item" href="{{route('stripe.session')}}">Stripe</a></li>
+                                        </ul>
+                                    </div>
+                                    @else
+                                    <a href="{{route('account.login')}}" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Check out</span></a>
+                                    @endauth
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -554,48 +586,58 @@
     <!-- /shoppingCart -->
 
     <!-- modal quick_add -->
-    <div class="modal fade modalDemo" id="quick_add">
-        <div class="modal-dialog modal-dialog-centered">
+    @if(!empty($products))
+    @foreach($products as $product)
+    <div class="modal fade modalDemo" id="quick_add_{{$product->id}}">
+        <div class="modal-dialog modal-dialog-centered w-50 w-md-75 w-sm-100">
             <div class="modal-content" style="overflow: hidden;">
+                <style>
+                    @media (max-width: 767px) {
+                        .modal-content {
+                            height: 100% !important;
+                            overflow-y: auto !important;
+                        }
+                    }
+                </style>
                 <div class="header">
                     <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                 </div>
                 <div class="wrap">
                     <div class="tf-product-info-item" style="display: block !important;">
-                        <div class="image">
-                            <img src="{{ asset('assets/images/products/orange-1.jpg') }}" alt="">
+                        <div class="image text-center text-md-start">
+                            <img class="img-fluid" style="max-width: 40%; width: 100%;" src="{{ asset('uploads/products/'. $product->image) }}" alt="">
                         </div>
-                        <div class="content">
-                            <a href="#">Ribbed Tank Top</a>
+                        <div class="content mt-3 mt-md-0">
+                            <a href="#" class="d-block mb-2">{{$product->name}}</a>
                             <div class="tf-product-info-price">
-                                <!-- <div class="price-on-sale">$8.00</div>
-                                <div class="compare-at-price">$10.00</div>
-                                <div class="badges-on-sale"><span>20</span>% OFF</div> -->
-                                <div class="price">$18.00</div>
+                                <div class="price">${{$product->price}}</div>
                             </div>
                         </div>
                     </div>
-                    <div class="tf-product-info-quantity mb_15">
-                        <div class="quantity-title fw-6">Quantity</div>
-                        <div class="wg-quantity">
-                            <span class="btn-quantity minus-btn">-</span>
-                            <input type="text" name="number" value="1">
-                            <span class="btn-quantity plus-btn">+</span>
-                        </div>
-                    </div>
                     <div class="tf-product-info-buy-button">
-                        <form>
-                            <a href="javascript:void(0);" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart - </span><span class="tf-qty-price">$18.00</span></a>
-                            <!-- <div class="w-100">
-                                <a href="#" class="btns-full">Buy with <img src="{{ asset('assets/images/payments/paypal.png') }}" alt=""></a>
-                                <a href="#" class="payment-more-option">More payment options</a>
-                            </div> -->
+                        <form action="{{route('cart.store')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$product->id}}">
+                            <input type="hidden" name="name" value="{{$product->name}}">
+                            <input type="hidden" name="price" value="{{$product->price}}">
+                            <input type="hidden" name="image" value="{{$product->image}}">
+                            <div class="tf-product-info-quantity mb-3 w-100">
+                                <div class="quantity-title fw-6 mb-2">Quantity</div>
+                                <div class="wg-quantity d-flex justify-content-center justify-content-md-start">
+                                    <span class="btn-quantity minus-btn">-</span>
+                                    <input type="text" name="quantity" value="1">
+                                    <span class="btn-quantity plus-btn">+</span>
+                                </div>
+                            </div>
+                            <button type="submit" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn w-100"><span>Add to cart</span></button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
+    @endif
     <!-- /modal quick_add -->
     <!-- auto popup  -->
     <div class="modal modalCentered fade auto-popup modal-newleter">
@@ -634,10 +676,55 @@
     <script type="text/javascript" src="{{ asset('assets/js/wow.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/multiple-modal.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('.remove_btn').on('click', function() {
+            var id = $(this).attr('data-id');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, remove it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/product/cart/remove',
+                        type: 'POST',
+                        data: {
+                            id: id,
+                            _token: $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            Swal.fire(
+                                'Removed!',
+                                'The item has been removed from your cart.',
+                                'success'
+                            ).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error:', error);
+                            Swal.fire(
+                                'Error!',
+                                'An error occurred while removing the item.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        });
+        setTimeout(function() {
+            $('.alert').fadeOut('slow', function() {
+                $(this).alert('close');
+            });
+        }, 2000);
+    </script>
     @stack('scripts')
 </body>
-
-
-<!-- Mirrored from themesflat.co/html/ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Aug 2024 07:18:22 GMT -->
 
 </html>
