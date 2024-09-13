@@ -66,7 +66,6 @@ Route::post('admin/authenticate', [AdminLoginController::class, 'authenticate'])
 Route::get('admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
 
-
 Route::post('/product/cart', [CartController::class, 'store'])->name('cart.store');
 Route::post('/product/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 
