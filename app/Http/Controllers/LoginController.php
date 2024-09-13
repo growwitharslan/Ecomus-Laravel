@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
+use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -51,7 +53,9 @@ class LoginController extends Controller
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->save();
-            return redirect()->route('account.dashboard')->with('success', 'Registration Successfully');
+            $products = product::all();
+            $cats = category::all();
+            return redirect()->route('account.dashboard', compact('products', 'cats'))->with('success', 'Registration Successfully');
         } else {
             return redirect()->route('account.register')->withErrors($validator)->withInput();
         }
@@ -59,13 +63,16 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-         return view('welcome')->with('success', 'Logout Successfully');
+        $products = product::all();
+        $cats = category::all();
+        return view('welcome', compact('products', 'cats'))->with('success', 'Logout Successfully');
     }
+
     public function destroy(Request $request)
-   {
-      $user = User::findOrFail($request->id);
-      //delete product from database
-      $user->delete();
-      return response()->json(['msg' => 'success', 'response' => 'User deleted successfully.']);
-   }
+    {
+        $user = User::findOrFail($request->id);
+        //delete product from database
+        $user->delete();
+        return response()->json(['msg' => 'success', 'response' => 'User deleted successfully.']);
+    }
 }

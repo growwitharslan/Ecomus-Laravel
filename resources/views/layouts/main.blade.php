@@ -259,12 +259,13 @@
 
     <!-- toolbar-bottom -->
     <div class="tf-toolbar-bottom type-1150">
-        <div class="toolbar-item active">
-            <a href="#toolbarShopmb" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+        <div class="toolbar-item ">
+        <!-- #toolbarShopmb data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" -->
+            <a href="{{ route('home') }}" >
                 <div class="toolbar-icon">
-                    <i class="icon-shop"></i>
+                    <i class="fas fa-home"></i>
                 </div>
-                <div class="toolbar-label">Products</div>
+                <div class="toolbar-label">Home</div>
             </a>
         </div>
         <div class="toolbar-item">
@@ -285,7 +286,7 @@
             </a>
         </div>
         <div class="toolbar-item">
-            <a href="#">
+            <a href="{{route('account.login')}}">
                 <div class="toolbar-icon">
                     <i class="icon-account"></i>
                     <div class="toolbar-count">1</div>
