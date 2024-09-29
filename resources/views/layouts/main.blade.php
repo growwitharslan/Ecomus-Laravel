@@ -85,7 +85,7 @@
                                     <li><a class="dropdown-item" href="{{ route('account.register') }}">Register</a></li>
                                     @else
                                     <li><a class="dropdown-item" href="#"><b>{{ Auth::user()->name }}</b></a></li>
-                                    <li><a class="dropdown-item" href="#">Orders</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('order.show') }}">Orders <span style="color:white; background-color: #db1215; padding: 4px; border-radius: 50%;">{{ App\Models\orders::count() }}</span></a></li>
                                     <li><a class="dropdown-item" href="{{ route('account.logout') }}"
                                             onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">Logout</a></li>
@@ -273,6 +273,15 @@
             </a>
         </div>
         <div class="toolbar-item">
+            <a href="{{ route('order.show') }}">
+                <div class="toolbar-icon">
+                    <i class="fa-regular fa-folder-open"></i>
+                    <div class="toolbar-count">{{ App\Models\orders::count() }}</div>
+                </div>
+                <div class="toolbar-label">Orders</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
             <a href="#shoppingCart" data-bs-toggle="modal">
                 <div class="toolbar-icon">
                     <i class="icon-bag"></i>
@@ -323,6 +332,28 @@
                             <span>Categories</span>
                         </a>
                     </li>
+                    @guest
+                    <li class="nav-mb-item">
+                        <a href="{{ route('account.login') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
+                            <span>Login</span>
+                        </a>
+                    </li>
+                    <li class="nav-mb-item">
+                        <a href="{{ route('account.register') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    @else
+                    <li class="nav-mb-item">
+                        <a href="{{ route('account.logout') }}" onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    <form id="logout-form" action="{{ route('account.logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    @endguest
                 </ul>
                 <div class="mb-other-content">
                     <div class="mb-notice">
@@ -338,100 +369,6 @@
         </div>
     </div>
     <!-- /mobile menu -->
-
-
-
-    <!-- canvasSearch -->
-    <div class="offcanvas offcanvas-end canvas-search" id="canvasSearch">
-        <div class="canvas-wrapper">
-            <header class="tf-search-head">
-                <div class="title fw-5">
-                    Search our site
-                    <div class="close">
-                        <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
-                    </div>
-                </div>
-                <div class="tf-search-sticky">
-                    <form class="tf-mini-search-frm">
-                        <fieldset class="text">
-                            <input type="text" placeholder="Search" class="" name="text" tabindex="0" value="" aria-required="true" required="">
-                        </fieldset>
-                        <button class="" type="submit"><i class="icon-search"></i></button>
-                    </form>
-                </div>
-            </header>
-            <div class="canvas-body p-0">
-                <div class="tf-search-content">
-                    <div class="tf-cart-hide-has-results">
-                        <div class="tf-col-quicklink">
-                            <div class="tf-search-content-title fw-5">Quick link</div>
-                            <ul class="tf-quicklink-list">
-                                <li class="tf-quicklink-item">
-                                    <a href="shop-default.html" class="">Fashion</a>
-                                </li>
-                                <li class="tf-quicklink-item">
-                                    <a href="shop-default.html" class="">Men</a>
-                                </li>
-                                <li class="tf-quicklink-item">
-                                    <a href="shop-default.html" class="">Women</a>
-                                </li>
-                                <li class="tf-quicklink-item">
-                                    <a href="shop-default.html" class="">Accessories</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tf-col-content">
-                            <div class="tf-search-content-title fw-5">Need some inspiration?</div>
-                            <div class="tf-search-hidden-inner">
-                                <div class="tf-loop-item">
-                                    <div class="image">
-                                        <a href="#">
-                                            <img src="{{ asset('assets/images/products/white-3.jpg') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <a href="#">Cotton jersey top</a>
-                                        <div class="tf-product-info-price">
-                                            <div class="compare-at-price">$10.00</div>
-                                            <div class="price-on-sale fw-6">$8.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tf-loop-item">
-                                    <div class="image">
-                                        <a href="#">
-                                            <img src="{{ asset('assets/images/products/white-2.jpg') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <a href="#">Mini crossbody bag</a>
-                                        <div class="tf-product-info-price">
-                                            <div class="price fw-6">$18.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tf-loop-item">
-                                    <div class="image">
-                                        <a href="#">
-                                            <img src="{{ asset('assets/images/products/white-1.jpg') }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <a href="#">Oversized Printed T-shirt</a>
-                                        <div class="tf-product-info-price">
-                                            <div class="price fw-6">$18.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /canvasSearch -->
-
     <!-- toolbarShopmb -->
     <div class="offcanvas offcanvas-start canvas-mb toolbar-shop-mobile" id="toolbarShopmb">
         <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
@@ -591,14 +528,7 @@
     <div class="modal fade modalDemo" id="quick_add_{{$product->id}}">
         <div class="modal-dialog modal-dialog-centered w-50 w-md-75 w-sm-100">
             <div class="modal-content" style="overflow: hidden;">
-                <style>
-                    @media (max-width: 767px) {
-                        .modal-content {
-                            height: 100% !important;
-                            overflow-y: auto !important;
-                        }
-                    }
-                </style>
+
                 <div class="header">
                     <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                 </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\StripeController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Middleware\AdminMiddleware;
@@ -72,3 +73,6 @@ Route::post('/product/cart/remove', [CartController::class, 'remove'])->name('ca
 Route::get('/stripe/checkout', [StripeController::class, 'session'])->name('stripe.session');
 Route::get('/stripe/checkout/success', [StripeController::class, 'success'])->name('stripe.success');
 Route::get('/stripe/checkout/cancel', [StripeController::class, 'cancel'])->name('stripe.cancel');
+
+Route::get('/orders', [OrderController::class, 'index'])->name('order.show');
+Route::post('/orders/cancel', [OrderController::class, 'cancel'])->name('order.delete');
