@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\OrderItems;
 use App\Models\orders;
 use App\Models\product;
 use Illuminate\Http\Request;
@@ -47,15 +48,28 @@ class StripeController extends Controller
         $cart = session()->get('cart', []);
         $order = new orders();
         $order->user_id = Auth::user()->id; // Assuming you have user authentication
-        $order->total_amount = array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart));
+        $order->total_amount = array_sum(array_map(function ($item) {
+            return $item['price'] * $item['quantity'];
+        }, $cart));
         $order->status = 'pending'; // Added status
         $order->save();
+        foreach ($cart as $item) {
+            OrderItems::create([
+                'order_id' => $order->id,
+                'product_id' => $item['id'],
+                'product_name' => $item['name'],
+                'quantity' => $item['quantity'],
+                'price' => $item['price'],
+                'total' => $item['price'] * $item['quantity'],
+            ]);
+        }
         session()->forget('cart'); // Delete the cart after saving the order
         $products = product::all();
         $cats = category::all();
         session()->flash('success', 'Order successful!');
         return view('dashboard', compact('products', 'cats'));
-    }    public function cancel()
+    }
+    public function cancel()
     {
         return redirect()->route('home')->with('error', 'Order cancelled!');
     }

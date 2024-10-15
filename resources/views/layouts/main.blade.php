@@ -276,7 +276,7 @@
             <a href="{{ route('order.show') }}">
                 <div class="toolbar-icon">
                     <i class="fa-regular fa-folder-open"></i>
-                    <div class="toolbar-count">{{ App\Models\orders::count() }}</div>
+                    <div class="toolbar-count">{{ App\Models\orders::where('user_id', auth()->id())->count() }}</div>
                 </div>
                 <div class="toolbar-label">Orders</div>
             </a>
@@ -336,7 +336,7 @@
                     <li class="nav-mb-item">
                         <a href="{{ route('account.login') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
                             <span>Login</span>
-                        </a>
+                        </a>    
                     </li>
                     <li class="nav-mb-item">
                         <a href="{{ route('account.register') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">

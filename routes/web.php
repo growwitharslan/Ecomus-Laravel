@@ -75,4 +75,5 @@ Route::get('/stripe/checkout/success', [StripeController::class, 'success'])->na
 Route::get('/stripe/checkout/cancel', [StripeController::class, 'cancel'])->name('stripe.cancel');
 
 Route::get('/orders', [OrderController::class, 'index'])->name('order.show');
+Route::get('/order/details/{id}', [OrderController::class, 'orderDetails'])->name('order.details');
 Route::post('/orders/cancel', [OrderController::class, 'cancel'])->name('order.delete');

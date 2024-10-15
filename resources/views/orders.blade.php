@@ -55,7 +55,7 @@
                                     @endif
                                 </td>
                                 <td data-label="Actions" class="d-block d-md-table-cell">
-                                    <button class="btn btn-sm btn-primary mb-1 mb-md-0" data-id="{{ $order->id }}">View</button>
+                                    <a href="{{ route('order.details', $order->id) }}" class="btn btn-sm btn-primary mb-1 mb-md-0">View</a>
                                     <button class="btn btn-sm btn-danger btn_delete" data-id="{{ $order->id }}" data-text="Are you sure you want to Undo this Order?">Cancel</button>
                                 </td>
                             </tr>
