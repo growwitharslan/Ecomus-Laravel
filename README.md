@@ -1,66 +1,287 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Ecomus - Laravel Ecommerce Application
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
 </p>
 
-## About Laravel
+<p align="center">
+  <strong>A modern ecommerce platform built with Laravel 11</strong>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [About](#about)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Database Structure](#database-structure)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 About
 
-## Learning Laravel
+Ecomus is a full-featured ecommerce application built with Laravel 11, providing a complete online shopping experience with both customer and admin interfaces. The application includes product management, user authentication, shopping cart functionality, order processing, and Stripe payment integration.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ✨ Features
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Customer Features
+- **User Registration & Authentication**: Secure user registration and login system
+- **Product Browsing**: Browse products by category with detailed product views
+- **Shopping Cart**: Add/remove items with session-based cart management
+- **Secure Checkout**: Integrated Stripe payment processing
+- **Order Management**: View order history and track order status
+- **Responsive Design**: Mobile-friendly interface
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Admin Features
+- **Admin Dashboard**: Comprehensive admin panel for store management
+- **Product Management**: CRUD operations for products with image upload
+- **Category Management**: Organize products with categories
+- **User Management**: Manage customer accounts and information
+- **Order Management**: Process and track customer orders
+- **Inventory Control**: Monitor product availability
 
-## Laravel Sponsors
+### Technical Features
+- **Laravel 11**: Latest Laravel framework with modern PHP practices
+- **Stripe Integration**: Secure payment processing
+- **Session Management**: Robust cart and user session handling
+- **Middleware Protection**: Route protection for admin and user areas
+- **Database Migrations**: Structured database schema with migrations
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠 Technology Stack
 
-### Premium Partners
+- **Backend**: Laravel 11 (PHP 8.2+)
+- **Database**: MySQL/PostgreSQL/SQLite
+- **Payment Gateway**: Stripe
+- **Frontend**: Blade templates with Vite
+- **Authentication**: Laravel's built-in authentication system
+- **File Storage**: Local file system for product images
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 📦 Installation
 
-## Contributing
+### Prerequisites
+- PHP 8.2 or higher
+- Composer
+- Node.js and NPM
+- Database (MySQL, PostgreSQL, or SQLite)
+- Stripe account for payment processing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Step 1: Clone the Repository
+```bash
+git clone <repository-url>
+cd ecomus
+```
 
-## Code of Conduct
+### Step 2: Install Dependencies
+```bash
+composer install
+npm install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Step 3: Environment Configuration
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+### Step 4: Database Setup
+```bash
+# Configure your database in .env file
+php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Step 5: Build Assets
+```bash
+npm run build
+```
 
-## License
+### Step 6: Start the Application
+```bash
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## ⚙️ Configuration
+
+### Environment Variables
+Add the following to your `.env` file:
+
+```env
+# Database Configuration
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ecomus
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+# Stripe Configuration
+STRIPE_PK=your_stripe_public_key
+STRIPE_SK=your_stripe_secret_key
+
+# Application Configuration
+APP_NAME=Ecomus
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+```
+
+### Stripe Setup
+1. Create a Stripe account at [stripe.com](https://stripe.com)
+2. Get your API keys from the Stripe dashboard
+3. Add the keys to your `.env` file
+4. Configure webhook endpoints if needed
+
+## 🗄️ Database Structure
+
+### Core Tables
+
+#### Users
+- `id` - Primary key
+- `name` - User's full name
+- `email` - Unique email address
+- `password` - Hashed password
+- `created_at`, `updated_at` - Timestamps
+
+#### Admins
+- `id` - Primary key
+- `name` - Admin's full name
+- `email` - Unique email address
+- `password` - Hashed password
+- `status` - Admin status
+- `created_at`, `updated_at` - Timestamps
+
+#### Products
+- `id` - Primary key
+- `name` - Product name
+- `price` - Product price (decimal)
+- `description` - Product description
+- `image` - Product image path
+- `available` - Availability status
+- `created_at`, `updated_at` - Timestamps
+
+#### Categories
+- `id` - Primary key
+- `name` - Category name
+- `slug` - URL-friendly slug
+- `description` - Category description
+- `image` - Category image path
+- `created_at`, `updated_at` - Timestamps
+
+#### Orders
+- `id` - Primary key
+- `user_id` - Foreign key to users table
+- `total_amount` - Order total (decimal)
+- `status` - Order status (pending, processing, completed, cancelled)
+- `created_at`, `updated_at` - Timestamps
+
+#### Order Items
+- `id` - Primary key
+- `order_id` - Foreign key to orders table
+- `product_id` - Foreign key to products table
+- `product_name` - Product name at time of order
+- `quantity` - Item quantity
+- `price` - Item price at time of order
+- `total` - Item total
+- `created_at`, `updated_at` - Timestamps
+
+## 🚀 Usage
+
+### Customer Flow
+1. **Browse Products**: Visit the homepage to see available products
+2. **Product Details**: Click on products to view detailed information
+3. **Add to Cart**: Add desired items to shopping cart
+4. **Checkout**: Proceed to Stripe checkout for secure payment
+5. **Order Confirmation**: Receive order confirmation and tracking
+
+### Admin Flow
+1. **Admin Login**: Access admin panel at `/admin`
+2. **Dashboard**: View store overview and statistics
+3. **Manage Products**: Add, edit, or remove products
+4. **Manage Categories**: Organize products into categories
+5. **Process Orders**: Update order status and manage customer orders
+6. **User Management**: Monitor and manage customer accounts
+
+### Key Routes
+
+#### Public Routes
+- `/` - Homepage with products
+- `/products` - All products listing
+- `/categories` - Category listing
+- `/product` - Product details
+- `/category` - Category products
+- `/account/login` - Customer login
+- `/account/register` - Customer registration
+
+#### Customer Routes (Protected)
+- `/account/dashboard` - Customer dashboard
+- `/orders` - Order history
+- `/order/details/{id}` - Order details
+- `/stripe/checkout` - Payment checkout
+
+#### Admin Routes
+- `/admin` - Admin login
+- `/admin/dashboard` - Admin dashboard
+- `/admin/products` - Product management
+- `/admin/categories` - Category management
+- `/admin/users` - User management
+- `/admin/orders` - Order management
+
+## 🔧 Development
+
+### Running Tests
+```bash
+php artisan test
+```
+
+### Code Style
+```bash
+./vendor/bin/pint
+```
+
+### Database Seeding
+```bash
+php artisan db:seed
+```
+
+### Cache Management
+```bash
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [Laravel documentation](https://laravel.com/docs)
+2. Review the application logs in `storage/logs/`
+3. Ensure all environment variables are properly configured
+4. Verify database migrations have been run
+
+## 🔐 Security
+
+- All user passwords are hashed using Laravel's built-in hashing
+- Admin routes are protected with middleware
+- Stripe handles all payment data securely
+- CSRF protection is enabled for all forms
+- Input validation is implemented throughout the application
+
+---
+
+**Built with ❤️ using Laravel 11**
