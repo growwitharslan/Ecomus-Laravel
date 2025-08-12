@@ -44,4 +44,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get all orders for this user.
+     */
+    public function orders()
+    {
+        return $this->hasMany(Orders::class, 'user_id'); // user_id is the foreign key in orders table
+    }
 }

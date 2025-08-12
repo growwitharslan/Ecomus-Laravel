@@ -14,4 +14,9 @@ class orders extends Model
     protected $fillable = [
         'user_id','total_amount','status'
     ];
+
+    public function items()
+    {
+        return $this->hasMany(OrderItems::class, 'order_id');
+    }
 }

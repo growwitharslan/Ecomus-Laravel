@@ -15,15 +15,31 @@ class OrderController extends Controller
         return view('orders', compact('orders', 'orderitems'));
     }
     public function cancel(Request $request)
-    {
-        $user = orders::findOrFail($request->id);
-        $user->delete();
-        return response()->json(['msg' => 'success', 'response' => 'Order deleted successfully.']);
-    }
+{
+    $order = orders::with('items')->findOrFail($request->id);
+
+    // Delete all related order items first
+    $order->items()->delete();
+
+    // Now delete the order
+    $order->delete();
+
+    return response()->json([
+        'msg' => 'success',
+        'response' => 'Order and related items deleted successfully.'
+    ]);
+}
+
     public function orderDetails($id)
     {
         $order = orders::findOrFail($id);
-        $orderitems = OrderItems::where('order_id', $id)->get();
+
+        // Load order items with their related product
+        $orderitems = \App\Models\OrderItems::with('product')
+            ->where('order_id', $id)
+            ->get();
+
         return view('order-details', compact('order', 'orderitems'));
     }
+    
 }

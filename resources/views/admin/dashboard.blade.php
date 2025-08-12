@@ -48,7 +48,7 @@
 					<h5>Orders</h5>
 				</div>
 				<div class="ibox-content">
-					<h1 class="no-margins">not yet</h1>
+					<h1 class="no-margins">{{ App\Models\orders::count() }}</h1>
 					<div class="stat-percent font-bold text-primary"><a href=""><span class="label label-primary">View</span></a></div>
 					<small>Orders</small>
 				</div>

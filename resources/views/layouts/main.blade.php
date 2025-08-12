@@ -19,7 +19,9 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/logo/favicon.png') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     @stack('styles')
 </head>
 <style>
@@ -45,8 +47,11 @@
                 <div class="row wrapper-header align-items-center">
                     <div class="col-md-4 col-3 tf-lg-hidden">
                         <a href="#mobileMenu" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none">
-                                <path d="M2.00056 2.28571H16.8577C17.1608 2.28571 17.4515 2.16531 17.6658 1.95098C17.8802 1.73665 18.0006 1.44596 18.0006 1.14286C18.0006 0.839753 17.8802 0.549063 17.6658 0.334735C17.4515 0.120408 17.1608 0 16.8577 0H2.00056C1.69745 0 1.40676 0.120408 1.19244 0.334735C0.978109 0.549063 0.857702 0.839753 0.857702 1.14286C0.857702 1.44596 0.978109 1.73665 1.19244 1.95098C1.40676 2.16531 1.69745 2.28571 2.00056 2.28571ZM0.857702 8C0.857702 7.6969 0.978109 7.40621 1.19244 7.19188C1.40676 6.97755 1.69745 6.85714 2.00056 6.85714H22.572C22.8751 6.85714 23.1658 6.97755 23.3801 7.19188C23.5944 7.40621 23.7148 7.6969 23.7148 8C23.7148 8.30311 23.5944 8.59379 23.3801 8.80812C23.1658 9.02245 22.8751 9.14286 22.572 9.14286H2.00056C1.69745 9.14286 1.40676 9.02245 1.19244 8.80812C0.978109 8.59379 0.857702 8.30311 0.857702 8ZM0.857702 14.8571C0.857702 14.554 0.978109 14.2633 1.19244 14.049C1.40676 13.8347 1.69745 13.7143 2.00056 13.7143H12.2863C12.5894 13.7143 12.8801 13.8347 13.0944 14.049C13.3087 14.2633 13.4291 14.554 13.4291 14.8571C13.4291 15.1602 13.3087 15.4509 13.0944 15.6653C12.8801 15.8796 12.5894 16 12.2863 16H2.00056C1.69745 16 1.40676 15.8796 1.19244 15.6653C0.978109 15.4509 0.857702 15.1602 0.857702 14.8571Z" fill="currentColor"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16"
+                                fill="none">
+                                <path
+                                    d="M2.00056 2.28571H16.8577C17.1608 2.28571 17.4515 2.16531 17.6658 1.95098C17.8802 1.73665 18.0006 1.44596 18.0006 1.14286C18.0006 0.839753 17.8802 0.549063 17.6658 0.334735C17.4515 0.120408 17.1608 0 16.8577 0H2.00056C1.69745 0 1.40676 0.120408 1.19244 0.334735C0.978109 0.549063 0.857702 0.839753 0.857702 1.14286C0.857702 1.44596 0.978109 1.73665 1.19244 1.95098C1.40676 2.16531 1.69745 2.28571 2.00056 2.28571ZM0.857702 8C0.857702 7.6969 0.978109 7.40621 1.19244 7.19188C1.40676 6.97755 1.69745 6.85714 2.00056 6.85714H22.572C22.8751 6.85714 23.1658 6.97755 23.3801 7.19188C23.5944 7.40621 23.7148 7.6969 23.7148 8C23.7148 8.30311 23.5944 8.59379 23.3801 8.80812C23.1658 9.02245 22.8751 9.14286 22.572 9.14286H2.00056C1.69745 9.14286 1.40676 9.02245 1.19244 8.80812C0.978109 8.59379 0.857702 8.30311 0.857702 8ZM0.857702 14.8571C0.857702 14.554 0.978109 14.2633 1.19244 14.049C1.40676 13.8347 1.69745 13.7143 2.00056 13.7143H12.2863C12.5894 13.7143 12.8801 13.8347 13.0944 14.049C13.3087 14.2633 13.4291 14.554 13.4291 14.8571C13.4291 15.1602 13.3087 15.4509 13.0944 15.6653C12.8801 15.8796 12.5894 16 12.2863 16H2.00056C1.69745 16 1.40676 15.8796 1.19244 15.6653C0.978109 15.4509 0.857702 15.1602 0.857702 14.8571Z"
+                                    fill="currentColor"></path>
                             </svg>
                         </a>
                     </div>
@@ -76,26 +81,35 @@
                     <div class="col-xl-3 col-md-4 col-3 d-none d-xl-block">
                         <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
                             <li class="nav-account position-relative">
-                                <a href="#" class="nav-icon-item" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="#" class="nav-icon-item" id="accountDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="icon icon-account"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="accountDropdown">
                                     @guest
-                                    <li><a class="dropdown-item" href="{{ route('account.login') }}">Login</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('account.register') }}">Register</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('account.login') }}">Login</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('account.register') }}">Register</a>
+                                        </li>
                                     @else
-                                    <li><a class="dropdown-item" href="#"><b>{{ Auth::user()->name }}</b></a></li>
-                                    <li><a class="dropdown-item" href="{{ route('order.show') }}">Orders <span style="color:white; background-color: #db1215; padding: 4px; border-radius: 50%;">{{ App\Models\orders::count() }}</span></a></li>
-                                    <li><a class="dropdown-item" href="{{ route('account.logout') }}"
-                                            onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">Logout</a></li>
-                                    <form id="logout-form" action="{{ route('account.logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                        <li><a class="dropdown-item" href="#"><b>{{ Auth::user()->name }}</b></a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('order.show') }}">Orders <span
+                                                    style="color:white; background-color: #db1215; padding-inline: 8px; padding-block: 2x;  border-radius: 50%;">{{ App\Models\orders::count() }}</span></a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('account.logout') }}"
+                                                onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">Logout</a>
+                                        </li>
+                                        <form id="logout-form" action="{{ route('account.logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
                                     @endguest
                                 </ul>
                             </li>
-                            <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">{{ count(session('cart', [])) }}</span></a></li>
+                            <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal"
+                                    class="nav-icon-item"><i class="icon icon-bag"></i><span
+                                        class="count-box">{{ count(session('cart', [])) }}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -113,134 +127,129 @@
                 <div class="footer-body">
                     <div class="container">
                         <div class="row">
+
+                            {{-- Store Info --}}
                             <div class="col-xl-3 col-md-6 col-12">
                                 <div class="footer-infor">
                                     <div class="footer-logo">
                                         <a href="{{ route('home') }}">
-                                            <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="">
+                                            <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="Store Logo">
                                         </a>
                                     </div>
                                     <ul>
                                         <li>
-                                            <p>Address: 1234 Fashion Street, Suite 567, <br> New York, NY 10001</p>
+                                            <p>Address: {{ config('store.address', '1234 Fashion Street, NY') }}</p>
                                         </li>
                                         <li>
-                                            <p>Email: <a href="#">info@fashionshop.com</a></p>
+                                            <p>Email: <a href="mailto:{{ config('store.email', 'info@shop.com') }}">
+                                                    {{ config('store.email', 'info@shop.com') }}
+                                                </a></p>
                                         </li>
                                         <li>
-                                            <p>Phone: <a href="#">(212) 555-1234</a></p>
+                                            <p>Phone: <a href="tel:{{ config('store.phone', '(212) 555-1234') }}">
+                                                    {{ config('store.phone', '(212) 555-1234') }}
+                                                </a></p>
                                         </li>
                                     </ul>
-                                    <a href="" class="tf-btn btn-line">Get direction<i class="icon icon-arrow1-top-left"></i></a>
+                                    <a href="https://maps.google.com?q={{ urlencode(config('store.address', '1234 Fashion Street, NY')) }}"
+                                        class="tf-btn btn-line" target="_blank">
+                                        Get direction<i class="icon icon-arrow1-top-left"></i>
+                                    </a>
                                     <ul class="tf-social-icon d-flex gap-10">
-                                        <li><a href="#" class="box-icon w_34 round social-facebook social-line"><i class="icon fs-14 icon-fb"></i></a></li>
-                                        <li><a href="#" class="box-icon w_34 round social-twiter social-line"><i class="icon fs-12 icon-Icon-x"></i></a></li>
-                                        <li><a href="#" class="box-icon w_34 round social-instagram social-line"><i class="icon fs-14 icon-instagram"></i></a></li>
-                                        <li><a href="#" class="box-icon w_34 round social-tiktok social-line"><i class="icon fs-14 icon-tiktok"></i></a></li>
-                                        <li><a href="#" class="box-icon w_34 round social-pinterest social-line"><i class="icon fs-14 icon-pinterest-1"></i></a></li>
+                                        <li><a href="{{ config('store.social.facebook', '#') }}" target="_blank"
+                                                class="box-icon w_34 round social-facebook social-line"><i
+                                                    class="icon fs-14 icon-fb"></i></a></li>
+                                        <li><a href="{{ config('store.social.twitter', '#') }}" target="_blank"
+                                                class="box-icon w_34 round social-twiter social-line"><i
+                                                    class="icon fs-12 icon-Icon-x"></i></a></li>
+                                        <li><a href="{{ config('store.social.instagram', '#') }}" target="_blank"
+                                                class="box-icon w_34 round social-instagram social-line"><i
+                                                    class="icon fs-14 icon-instagram"></i></a></li>
+                                        <li><a href="{{ config('store.social.tiktok', '#') }}" target="_blank"
+                                                class="box-icon w_34 round social-tiktok social-line"><i
+                                                    class="icon fs-14 icon-tiktok"></i></a></li>
+                                        <li><a href="{{ config('store.social.pinterest', '#') }}" target="_blank"
+                                                class="box-icon w_34 round social-pinterest social-line"><i
+                                                    class="icon fs-14 icon-pinterest-1"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6 col-12 footer-col-block">
-                                <div class="footer-heading footer-heading-desktop">
-                                    <h6>Help</h6>
+
+                            {{-- Quick Links --}}
+                            <div class="col-xl-6 col-md-12 col-12 footer-col-block">
+                                <div class="footer-heading">
+                                    <h6>Quick Links</h6>
                                 </div>
-                                <div class="footer-heading footer-heading-moblie">
-                                    <h6>Help</h6>
-                                </div>
-                                <ul class="footer-menu-list tf-collapse-content">
-                                    <li>
-                                        <a href="" class="footer-menu_item">Privacy Policy</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item"> Returns + Exchanges </a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">Shipping</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">Terms & Conditions</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">FAQ's</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">Compare</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">My Wishlist</a>
-                                    </li>
+                                <ul class="footer-menu-list">
+                                    <li><a href="" class="footer-menu_item">Our Story</a></li>
+                                    <li><a href="" class="footer-menu_item">Visit Our Store</a></li>
+                                    <li><a href="" class="footer-menu_item">Contact Us</a></li>
+                                    <li><a href="" class="footer-menu_item">My Account</a></li>
                                 </ul>
                             </div>
-                            <div class="col-xl-3 col-md-6 col-12 footer-col-block">
-                                <div class="footer-heading footer-heading-desktop">
-                                    <h6>About us</h6>
-                                </div>
-                                <div class="footer-heading footer-heading-moblie">
-                                    <h6>About us</h6>
-                                </div>
-                                <ul class="footer-menu-list tf-collapse-content">
-                                    <li>
-                                        <a href="" class="footer-menu_item">Our Story</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">Visit Our Store</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">Contact Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="footer-menu_item">Account</a>
-                                    </li>
-                                </ul>
-                            </div>
+
+                            {{-- Newsletter / Contact --}}
                             <div class="col-xl-3 col-md-6 col-12">
                                 <div class="footer-newsletter footer-col-block">
-                                    <div class="footer-heading footer-heading-desktop">
-                                        <h6>Sign Up for Email</h6>
+                                    <div class="footer-heading">
+                                        <h6>Contact Us via Email</h6>
                                     </div>
-                                    <div class="footer-heading footer-heading-moblie">
-                                        <h6>Sign Up for Email</h6>
-                                    </div>
-                                    <div class="tf-collapse-content">
-                                        <div class="footer-menu_item">Sign up to get first dibs on new arrivals, sales, exclusive content, events and more!</div>
-                                        <form class="form-newsletter subscribe-form" id="" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                                    <div>
+                                        <div class="footer-menu_item">
+                                            Send us your email address and we’ll get back to you shortly.
+                                        </div>
+
+                                        {{-- Newsletter form --}}
+                                        <form class="form-newsletter contact-form" action="" method="POST">
+                                            @csrf
                                             <div class="subscribe-content">
                                                 <fieldset class="email">
-                                                    <input type="email" name="email-form" class="subscribe-email" placeholder="Enter your email...." tabindex="0" aria-required="true">
+                                                    <input type="email" name="email" class="subscribe-email"
+                                                        placeholder="Enter your email..." required>
                                                 </fieldset>
                                                 <div class="button-submit">
-                                                    <button id="" class="subscribe-button tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn" type="button">Subscribe<i class="icon icon-arrow1-top-left"></i></button>
+                                                    <button
+                                                        class="subscribe-button tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn"
+                                                        type="submit">
+                                                        Send Email <i class="icon icon-arrow1-top-left"></i>
+                                                    </button>
                                                 </div>
                                             </div>
-                                            <div class="subscribe-msg"></div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
+
+                {{-- Bottom Footer --}}
                 <div class="footer-bottom">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <div class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-between align-items-center">
-                                    <div class="footer-menu_item">© 2024 Ecomus Store. All Rights Reserved</div>
+                                <div
+                                    class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-between align-items-center">
+                                    <div class="footer-menu_item">© {{ date('Y') }} {{ config('app.name') }}. All
+                                        Rights Reserved</div>
                                     <div class="tf-payment">
-                                        <img src="{{ asset('assets/images/payments/visa.png') }}" alt="">
-                                        <img src="{{ asset('assets/images/payments/img-1.png') }}" alt="">
-                                        <img src="{{ asset('assets/images/payments/img-2.png') }}" alt="">
-                                        <img src="{{ asset('assets/images/payments/img-3.png') }}" alt="">
-                                        <img src="{{ asset('assets/images/payments/img-4.png') }}" alt="">
+                                        <img src="{{ asset('assets/images/payments/visa.png') }}" alt="Visa">
+                                        <img src="{{ asset('assets/images/payments/img-1.png') }}" alt="Payment 1">
+                                        <img src="{{ asset('assets/images/payments/img-2.png') }}" alt="Payment 2">
+                                        <img src="{{ asset('assets/images/payments/img-3.png') }}" alt="Payment 3">
+                                        <img src="{{ asset('assets/images/payments/img-4.png') }}" alt="Payment 4">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </footer>
+
         <!-- /Footer -->
 
     </div>
@@ -248,7 +257,9 @@
     <!-- gotop -->
     <div class="progress-wrap">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;">
+            </path>
         </svg>
     </div>
     <!-- /gotop -->
@@ -292,19 +303,19 @@
         </div>
         <div class="toolbar-item">
             @auth
-            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
-                <div class="toolbar-icon">
-                    <i class="icon-account"></i>
-                </div>
-                <div class="toolbar-label">{{ Auth::user()->name }}</div>
-            </a>
+                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                    <div class="toolbar-icon">
+                        <i class="icon-account"></i>
+                    </div>
+                    <div class="toolbar-label">{{ Auth::user()->name }}</div>
+                </a>
             @else
-            <a href="{{ route('account.login') }}">
-                <div class="toolbar-icon">
-                    <i class="icon-account"></i>
-                </div>
-                <div class="toolbar-label">Login</div>
-            </a>
+                <a href="{{ route('account.login') }}">
+                    <div class="toolbar-icon">
+                        <i class="icon-account"></i>
+                    </div>
+                    <div class="toolbar-label">Login</div>
+                </a>
             @endauth
         </div>
 
@@ -318,41 +329,49 @@
             <div class="mb-body">
                 <ul class="nav-ul-mb" id="wrapper-menu-navigation">
                     <li class="nav-mb-item">
-                        <a href="{{ route('home') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-one">
+                        <a href="{{ route('home') }}" class="collapsed mb-menu-link current" aria-expanded="true"
+                            aria-controls="dropdown-menu-one">
                             <span>Home</span>
                         </a>
                     </li>
                     <li class="nav-mb-item">
-                        <a href="{{ route('products.view') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
+                        <a href="{{ route('products.view') }}" class="collapsed mb-menu-link current"
+                            aria-expanded="true" aria-controls="dropdown-menu-two">
                             <span>Products</span>
                         </a>
                     </li>
                     <li class="nav-mb-item">
-                        <a href="{{ route('category.view') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
+                        <a href="{{ route('category.view') }}" class="collapsed mb-menu-link current"
+                            aria-expanded="true" aria-controls="dropdown-menu-two">
                             <span>Categories</span>
                         </a>
                     </li>
                     @guest
-                    <li class="nav-mb-item">
-                        <a href="{{ route('account.login') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
-                            <span>Login</span>
-                        </a>    
-                    </li>
-                    <li class="nav-mb-item">
-                        <a href="{{ route('account.register') }}" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
-                            <span>Register</span>
-                        </a>
-                    </li>
+                        <li class="nav-mb-item">
+                            <a href="{{ route('account.login') }}" class="collapsed mb-menu-link current"
+                                aria-expanded="true" aria-controls="dropdown-menu-two">
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li class="nav-mb-item">
+                            <a href="{{ route('account.register') }}" class="collapsed mb-menu-link current"
+                                aria-expanded="true" aria-controls="dropdown-menu-two">
+                                <span>Register</span>
+                            </a>
+                        </li>
                     @else
-                    <li class="nav-mb-item">
-                        <a href="{{ route('account.logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();" class="collapsed mb-menu-link current" aria-expanded="true" aria-controls="dropdown-menu-two">
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                    <form id="logout-form" action="{{ route('account.logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                        <li class="nav-mb-item">
+                            <a href="{{ route('account.logout') }}"
+                                onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();"
+                                class="collapsed mb-menu-link current" aria-expanded="true"
+                                aria-controls="dropdown-menu-two">
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                        <form id="logout-form" action="{{ route('account.logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     @endguest
                 </ul>
                 <div class="mb-other-content">
@@ -384,7 +403,8 @@
                         </a>
                     </li>
                     <li class="nav-mb-item">
-                        <a href="#" class="tf-category-link has-children collapsed mb-menu-link" data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-menu-two">
+                        <a href="#" class="tf-category-link has-children collapsed mb-menu-link"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-menu-two">
                             <div class="image">
                                 <img src="{{ asset('assets/images/shop/cate/cate6.jpg') }}" alt="">
                             </div>
@@ -395,7 +415,8 @@
                                 <li>
                                     <a href="#" class="tf-category-link sub-nav-link">
                                         <div class="image">
-                                            <img src="{{ asset('assets/images/shop/cate/cate1.jpg') }}" alt="">
+                                            <img src="{{ asset('assets/images/shop/cate/cate1.jpg') }}"
+                                                alt="">
                                         </div>
                                         <span>Accessories</span>
                                     </a>
@@ -412,7 +433,8 @@
                         </a>
                     </li>
                     <li class="nav-mb-item">
-                        <a href="#" class="tf-category-link has-children collapsed mb-menu-link" data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-menu-three">
+                        <a href="#" class="tf-category-link has-children collapsed mb-menu-link"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="cate-menu-three">
                             <div class="image">
                                 <img src="{{ asset('assets/images/shop/cate/cate9.jpg') }}" alt="">
                             </div>
@@ -422,7 +444,8 @@
                 </ul>
             </div>
             <div class="mb-bottom">
-                <a href="{{ route('products.view') }}" class="tf-btn fw-5 btn-line">View all collection<i class="icon icon-arrow1-top-left"></i></a>
+                <a href="{{ route('products.view') }}" class="tf-btn fw-5 btn-line">View all collection<i
+                        class="icon icon-arrow1-top-left"></i></a>
             </div>
         </div>
     </div>
@@ -438,27 +461,20 @@
                     <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                 </div>
                 <div class="wrap">
-                    <div class="tf-mini-cart-threshold">
-                        <div class="tf-progress-bar">
-                            <span style="width: 50%;"></span>
-                        </div>
-                        <div class="tf-progress-msg">
-                            Buy <span class="price fw-6">$75.00</span> more to enjoy <span class="fw-6">Free Shipping</span>
-                        </div>
-                    </div>
                     <div class="tf-mini-cart-wrap">
                         <div class="tf-mini-cart-main">
                             <div class="tf-mini-cart-sroll">
                                 <div class="tf-mini-cart-items">
                                     @if (empty(session('cart', [])))
-                                    <div class="emptycart">
-                                        <div class="emptycart-icon d-flex justify-content-center align-items-center flex-column">
-                                            <img width="300px"
-                                                src="{{asset('assets/vecteezy_young-man-shopping-push-empty-shopping-trolley_4964514.svg')}}"
-                                                alt="">
-                                            <h5 class="emptycart-icon-text">Your cart is empty</h5>
+                                        <div class="emptycart">
+                                            <div
+                                                class="emptycart-icon d-flex justify-content-center align-items-center flex-column">
+                                                <img width="300px"
+                                                    src="{{ asset('assets/vecteezy_young-man-shopping-push-empty-shopping-trolley_4964514.svg') }}"
+                                                    alt="">
+                                                <h5 class="emptycart-icon-text">Your cart is empty</h5>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endif
                                     <?php
                                     // Get the cart items from the session
@@ -466,22 +482,25 @@
                                     // Sort the items by quantity in descending order
                                     arsort($cartItems);
                                     ?>
-                                    @foreach($cartItems as $id => $details)
-                                    <div class="tf-mini-cart-item">
-                                        <div class="tf-mini-cart-image">
-                                            <a href="#">
-                                                <img src="{{ asset('uploads/products/'. $details['image']) }}" alt="{{ $details['name'] }}">
-                                            </a>
-                                        </div>
-                                        <div class="tf-mini-cart-info">
-                                            <a class="title link" href="#">{{ $details['name'] }}</a>
-                                            <label for="">Quantity:</label>
-                                            <span>{{ $details['quantity'] }}x</span>
-                                            <div class="tf-mini-cart-btns">
-                                                <div class="tf-mini-cart-remove remove_btn" data-id="{{ $details['id'] }}">Remove</div>
+                                    @foreach ($cartItems as $id => $details)
+                                        <div class="tf-mini-cart-item">
+                                            <div class="tf-mini-cart-image">
+                                                <a href="#">
+                                                    <img src="{{ asset('uploads/products/' . $details['image']) }}"
+                                                        alt="{{ $details['name'] }}">
+                                                </a>
+                                            </div>
+                                            <div class="tf-mini-cart-info">
+                                                <a class="title link" href="#">{{ $details['name'] }}</a>
+                                                <label for="">Quantity:</label>
+                                                <span>{{ $details['quantity'] }}x</span>
+                                                <div class="tf-mini-cart-btns">
+                                                    <div class="tf-mini-cart-remove remove_btn"
+                                                        data-id="{{ $details['id'] }}" style="cursor: pointer">Remove
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </div>
 
@@ -490,29 +509,33 @@
                         </div>
                         <div class="tf-mini-cart-bottom">
                             @if (!empty(session('cart', [])))
-                            <div class="tf-mini-cart-bottom-wrap">
-                                <div class="tf-cart-totals-discounts">
-                                    <div class="tf-cart-total">Subtotal</div>
-                                    <div class="tf-totals-total-value fw-6">${{ array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, session('cart', []))); }} USD</div>
-                                </div>
-                                <div class="tf-cart-tax">Taxes and <a href="#">shipping</a> calculated at checkout</div>
-                                <div class="tf-mini-cart-line"></div>
-                                <div class="tf-mini-cart-view-checkout">
-                                    @auth
-                                    <div class="w-100 dropdown">
-                                        <button class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center dropdown-toggle" type="button" id="paymentDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span>Check out</span>
-                                        </button>
-                                        <ul class="dropdown-menu w-100" aria-labelledby="paymentDropdown">
-                                            <li><a class="dropdown-item" href="#">PayPal</a></li>
-                                            <li><a class="dropdown-item" href="{{route('stripe.session')}}">Stripe</a></li>
-                                        </ul>
+                                <div class="tf-mini-cart-bottom-wrap">
+                                    <div class="tf-cart-totals-discounts">
+                                        <div class="tf-cart-total">Subtotal</div>
+                                        <div class="tf-totals-total-value fw-6">
+                                            ${{ array_sum(array_map(function ($item) {return $item['price'] * $item['quantity'];}, session('cart', []))) }}
+                                            USD</div>
                                     </div>
-                                    @else
-                                    <a href="{{route('account.login')}}" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Check out</span></a>
-                                    @endauth
+                                    <div class="tf-cart-tax">Taxes and <a href="#">shipping</a> calculated at
+                                        checkout</div>
+                                    <div class="tf-mini-cart-line"></div>
+                                    <div class="tf-mini-cart-view-checkout">
+                                        @auth
+                                            <div class="w-100 dropdown">
+                                                <a href="{{ route('stripe.session') }}"
+                                                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
+                                                    aria-expanded="false">
+                                                    <span>Pay with Stripe</span>
+                                                </a>
+
+                                            </div>
+                                        @else
+                                            <a href="{{ route('account.login') }}"
+                                                class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Check
+                                                    out</span></a>
+                                        @endauth
+                                    </div>
                                 </div>
-                            </div>
                             @endif
                         </div>
                     </div>
@@ -523,50 +546,55 @@
     <!-- /shoppingCart -->
 
     <!-- modal quick_add -->
-    @if(!empty($products))
-    @foreach($products as $product)
-    <div class="modal fade modalDemo" id="quick_add_{{$product->id}}">
-        <div class="modal-dialog modal-dialog-centered w-50 w-md-75 w-sm-100">
-            <div class="modal-content" style="overflow: hidden;">
+    @if (!empty($products))
+        @foreach ($products as $product)
+            <div class="modal fade modalDemo" id="quick_add_{{ $product->id }}">
+                <div class="modal-dialog modal-dialog-centered w-50 w-md-75 w-sm-100">
+                    <div class="modal-content" style="overflow: hidden;">
 
-                <div class="header">
-                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
-                </div>
-                <div class="wrap">
-                    <div class="tf-product-info-item" style="display: block !important;">
-                        <div class="image text-center text-md-start">
-                            <img class="img-fluid" style="max-width: 40%; width: 100%;" src="{{ asset('uploads/products/'. $product->image) }}" alt="">
+                        <div class="header">
+                            <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                         </div>
-                        <div class="content mt-3 mt-md-0">
-                            <a href="#" class="d-block mb-2">{{$product->name}}</a>
-                            <div class="tf-product-info-price">
-                                <div class="price">${{$product->price}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tf-product-info-buy-button">
-                        <form action="{{route('cart.store')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="id" value="{{$product->id}}">
-                            <input type="hidden" name="name" value="{{$product->name}}">
-                            <input type="hidden" name="price" value="{{$product->price}}">
-                            <input type="hidden" name="image" value="{{$product->image}}">
-                            <div class="tf-product-info-quantity mb-3 w-100">
-                                <div class="quantity-title fw-6 mb-2">Quantity</div>
-                                <div class="wg-quantity d-flex justify-content-center justify-content-md-start">
-                                    <span class="btn-quantity minus-btn">-</span>
-                                    <input type="text" name="quantity" value="1">
-                                    <span class="btn-quantity plus-btn">+</span>
+                        <div class="wrap">
+                            <div class="tf-product-info-item" style="display: block !important;">
+                                <div class="image text-center text-md-start">
+                                    <img class="img-fluid" style="max-width: 40%; width: 100%;"
+                                        src="{{ asset('uploads/products/' . $product->image) }}" alt="">
+                                </div>
+                                <div class="content mt-3 mt-md-0">
+                                    <a href="#" class="d-block mb-2">{{ $product->name }}</a>
+                                    <div class="tf-product-info-price">
+                                        <div class="price">${{ $product->price }}</div>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="submit" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn w-100"><span>Add to cart</span></button>
-                        </form>
+                            <div class="tf-product-info-buy-button">
+                                <form action="{{ route('cart.store') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                    <input type="hidden" name="name" value="{{ $product->name }}">
+                                    <input type="hidden" name="price" value="{{ $product->price }}">
+                                    <input type="hidden" name="image" value="{{ $product->image }}">
+                                    <div class="tf-product-info-quantity mb-3 w-100">
+                                        <div class="quantity-title fw-6 mb-2">Quantity</div>
+                                        <div
+                                            class="wg-quantity d-flex justify-content-center justify-content-md-start">
+                                            <span class="btn-quantity minus-btn">-</span>
+                                            <input type="text" name="quantity" value="1">
+                                            <span class="btn-quantity plus-btn">+</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit"
+                                        class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn w-100"><span>Add
+                                            to cart</span></button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    @endforeach
+        @endforeach
     @endif
     <!-- /modal quick_add -->
     <!-- auto popup  -->
@@ -574,16 +602,20 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-top">
-                    <img class="lazyload" data-src="{{ asset('assets/images/item/banner-newleter.jpg') }}" src="{{ asset('assets/images/item/banner-newleter.jpg') }}" alt="home-01">
+                    <img class="lazyload" data-src="{{ asset('assets/images/item/banner-newleter.jpg') }}"
+                        src="{{ asset('assets/images/item/banner-newleter.jpg') }}" alt="home-01">
                     <span class="icon icon-close btn-hide-popup" data-bs-dismiss="modal"></span>
                 </div>
                 <div class="modal-bottom">
                     <h4 class="text-center">Don't mis out</h4>
                     <h6 class="text-center">Be the first one to get the new product at early bird prices.</h6>
-                    <form id="subscribe-form" action="#" class="form-newsletter" method="post" accept-charset="utf-8" data-mailchimp="true">
+                    <form id="subscribe-form" action="#" class="form-newsletter" method="post"
+                        accept-charset="utf-8" data-mailchimp="true">
                         <div id="subscribe-content">
                             <input type="email" name="email-form" id="subscribe-email" placeholder="Email *">
-                            <button type="button" id="subscribe-button" class="tf-btn btn-fill radius-3 animate-hover-btn w-100 justify-content-center">Keep me updated</button>
+                            <button type="button" id="subscribe-button"
+                                class="tf-btn btn-fill radius-3 animate-hover-btn w-100 justify-content-center">Keep me
+                                updated</button>
                         </div>
                         <div id="subscribe-msg"></div>
                     </form>
